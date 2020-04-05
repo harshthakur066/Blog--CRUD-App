@@ -8,6 +8,7 @@ const IndexScreen = ({ navigation }) => {
   const { state, addBlogPost, deleteBlogPost } = useContext(BlogContext);
   return (
     <View>
+      <Text style={styles.msg}>Hit the plus button to create the blogs.</Text>
       <FlatList
         data={state}
         keyExtractor={(blogPost) => blogPost.title}
@@ -54,6 +55,14 @@ const styles = StyleSheet.create({
   },
   icon: {
     fontSize: 24,
+  },
+  msg: {
+    textAlign: "center",
+    fontSize: 28,
+    marginTop: 10,
+    paddingBottom: 10,
+    borderBottomWidth: 1,
+    borderColor: "grey",
   },
 });
 
