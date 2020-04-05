@@ -9,8 +9,8 @@ const ShowScreen = ({ navigation }) => {
   const blogPost = state.find((blogPost) => blogPost.id === id);
   return (
     <View>
-      <Text> {blogPost.title} </Text>
-      <Text> {blogPost.content} </Text>
+      <Text style={styles.title}> {blogPost.title} </Text>
+      <Text style={styles.content}> {blogPost.content} </Text>
     </View>
   );
 };
@@ -26,6 +26,14 @@ ShowScreen.navigationOptions = ({ navigation }) => {
   };
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  title: {
+    fontSize: 28,
+    marginVertical: 50,
+  },
+  content: {
+    fontSize: 20,
+  },
+});
 
 export default ShowScreen;

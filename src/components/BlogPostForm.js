@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { View, Text, StyleSheet, Button } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 
-const BlogPostForm = ({ navigation }) => {
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
+const BlogPostForm = ({ onSubmit, initialValues }) => {
+  const [title, setTitle] = useState(initialValues.title);
+  const [content, setContent] = useState(initialValues.content);
   return (
     <View>
       <Text style={styles.lable}>Title:</Text>
@@ -21,10 +21,7 @@ const BlogPostForm = ({ navigation }) => {
         value={content}
         onChangeText={(text) => setContent(text)}
       />
-      <Button
-        title="Save Blog Post"
-        // onPress={() => { }}
-      />
+      <Button title="Save Blog Post" onPress={() => onSubmit(title, content)} />
     </View>
   );
 };
