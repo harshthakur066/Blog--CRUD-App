@@ -1,11 +1,24 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Text, StyleSheet, Button, View } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { Context as BlogContext } from "../context/BlogContext";
 import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
 
 const IndexScreen = ({ navigation }) => {
-  const { state, addBlogPost, deleteBlogPost } = useContext(BlogContext);
+  const { state, deleteBlogPost, getBlogPost } = useContext(BlogContext);
+
+  useEffect(() => {
+    getBlogPost();
+
+    const listener = navigation.addListener("didFocus", () => {
+      getBlogPost();
+    });
+
+    return () => {
+      listener.remove();
+    };
+  }, []);
+
   return (
     <View>
       <Text style={styles.msg}>Hit the plus button to create the blogs.</Text>
