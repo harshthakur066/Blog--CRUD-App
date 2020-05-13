@@ -1,6 +1,6 @@
 # Blog--CRUD-App
 
-# A blog Post app having all CRUD operations based on React Native and Json Server.
+### A blog Post app having all CRUD operations based on React Native and Json Server.
 
 ## To Start: 
 
